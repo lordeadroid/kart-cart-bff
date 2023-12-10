@@ -1,4 +1,4 @@
-const { readFile } = require('./src/readFile');
+const readData = require('./src/readData');
 const { createApp } = require('./src/app');
 
 const setupServer = (usersCredentials) => {
@@ -12,26 +12,17 @@ const setupServer = (usersCredentials) => {
   });
 };
 
-const parseFileData = (credentialsContent) => {
-  const usersCredentials = JSON.parse(credentialsContent);
+const parseData = (data) => {
+  const usersCredentials = JSON.parse(data);
   setupServer(usersCredentials);
 };
 
-const readData = (credentialsFilePath) => {
-  return new Promise((res, rej) => {
-    readFile(credentialsFilePath, 'utf-8', (error, data) => {
-      if (error) {
-        rej('');
-      }
-      res(data);
-    });
-  });
-};
-
-const main = async () => {
+const main = () => {
+  const encoding = 'utf-8';
   const credentialsFilePath = './users-credentials.json';
-  const rawUserData = await readData(credentialsFilePath);
-  parseFileData(rawUserData);
+  readData(credentialsFilePath, encoding).then((data) => {
+    parseData(data);
+  });
 };
 
 main();

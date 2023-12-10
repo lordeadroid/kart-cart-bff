@@ -2,12 +2,6 @@ const express = require('express');
 const { logRequest } = require('./middlewares/logger');
 
 const {
-  sendTweets,
-  addTweet,
-  likeTweet,
-} = require('./handlers/tweet-handlers');
-
-const {
   loginUser,
   checkLoginStatus,
   parseCookie,
@@ -34,14 +28,7 @@ const createApp = (usersCredentials) => {
   const app = express();
   app.locals.usersCredentials = usersCredentials;
 
-  addMiddleware(app);
-  addAuthenticators(app);
-
   app.get('/', serveHomePage);
-  app.get('/tweets', sendTweets);
-  app.post('/tweets', addTweet);
-  app.patch('/tweets/:id', likeTweet);
-
   app.use(express.static('public'));
 
   return app;
