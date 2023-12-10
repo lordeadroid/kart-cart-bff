@@ -1,8 +1,6 @@
 const express = require('express');
-const cors = require('cors');
 
 const { logRequest } = require('./middlewares/logger');
-
 const {
   loginUser,
   checkLoginStatus,
@@ -13,11 +11,13 @@ const {
   serveData,
   serveTrending,
 } = require('./handlers/authentication-handlers');
+const cors = require('./middlewares/cors');
 
 const addMiddleware = (app) => {
   app.use(logRequest);
   app.use(parseCookie);
   app.use(express.json());
+  app.use(cors);
   app.use(express.urlencoded({ extended: true }));
 };
 
@@ -32,15 +32,11 @@ const createApp = (usersCredentials) => {
   const app = express();
   app.locals.usersCredentials = usersCredentials;
 
+  addMiddleware(app);
+
   app.get('/', serveHomePage);
   app.get('/data', serveData);
   app.get('/trending', serveTrending);
-  app.use(express.static('public'));
-  app.use(
-    cors({
-      origin: '*',
-    })
-  );
 
   return app;
 };
