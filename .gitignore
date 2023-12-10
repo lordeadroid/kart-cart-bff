@@ -3,5 +3,3 @@ node_modules/
 coverage/
 .DS_Store
 DRAFT.md
-tweets.json
-users-credentials.json
