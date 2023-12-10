@@ -8,6 +8,8 @@ const {
   authenticateUser,
   serveHomePage,
   logoutUser,
+  serveData,
+  serveTrending,
 } = require('./handlers/authentication-handlers');
 
 const addMiddleware = (app) => {
@@ -29,6 +31,8 @@ const createApp = (usersCredentials) => {
   app.locals.usersCredentials = usersCredentials;
 
   app.get('/', serveHomePage);
+  app.get('/data', serveData);
+  app.get('/trending', serveTrending);
   app.use(express.static('public'));
 
   return app;

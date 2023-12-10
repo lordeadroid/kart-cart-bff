@@ -33,6 +33,10 @@ const serveHomePage = (req, res, next) => {
   next();
 };
 
+const serveData = (req, res) => {
+  res.send({ one: 1 });
+};
+
 const checkLoginStatus = (req, res) => {
   if (!isValidCookie(req.cookies)) {
     res.redirect('/login');
@@ -57,6 +61,15 @@ const logoutUser = (_, res) => {
   res.end();
 };
 
+const serveTrending = (req, res) => {
+  const data = [
+    { category: 'men', images: ['1', '2', '3', '4'] },
+    { category: 'women', images: ['5', '6', '7', '8'] },
+    { category: 'children', images: ['9', '10', '11', '12'] },
+  ];
+  res.send(data);
+};
+
 module.exports = {
   parseCookie,
   loginUser,
@@ -64,4 +77,6 @@ module.exports = {
   serveHomePage,
   authenticateUser,
   logoutUser,
+  serveData,
+  serveTrending
 };
