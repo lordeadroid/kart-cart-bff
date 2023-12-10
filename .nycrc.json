@@ -1,0 +1,6 @@
+{
+  "all": true,
+  "coverage": true,
+  "reporter": ["html", "text"],
+  "include": ["src/"]
+}
