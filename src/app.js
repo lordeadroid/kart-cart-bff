@@ -1,4 +1,6 @@
 const express = require('express');
+const cors = require('cors');
+
 const { logRequest } = require('./middlewares/logger');
 
 const {
@@ -34,6 +36,11 @@ const createApp = (usersCredentials) => {
   app.get('/data', serveData);
   app.get('/trending', serveTrending);
   app.use(express.static('public'));
+  app.use(
+    cors({
+      origin: '*',
+    })
+  );
 
   return app;
 };
