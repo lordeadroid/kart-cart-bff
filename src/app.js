@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+const express = require('express');
 const { logRequest } = require('./middlewares/logger');
 
 const {
