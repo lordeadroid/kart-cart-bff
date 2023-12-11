@@ -8,4 +8,12 @@ const serveTrending = (_, res) => {
   });
 };
 
-module.exports = { serveTrending };
+const serveHomePageData = (_, res) => {
+  const path = './data/homePageData.json';
+  const encoding = 'utf-8';
+  readData(path, encoding).then((data) => {
+    res.send(data);
+  });
+};
+
+module.exports = { serveTrending, serveHomePageData };
