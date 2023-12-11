@@ -1,5 +1,4 @@
 const { createHmac } = require('node:crypto');
-const readData = require('../readData');
 
 const splitByEqual = (text) => text.split('=');
 
@@ -34,10 +33,6 @@ const serveHomePage = (req, res, next) => {
   next();
 };
 
-const serveData = (req, res) => {
-  res.send({ one: 1 });
-};
-
 const checkLoginStatus = (req, res) => {
   if (!isValidCookie(req.cookies)) {
     res.redirect('/login');
@@ -62,14 +57,6 @@ const logoutUser = (_, res) => {
   res.end();
 };
 
-const serveTrending = (_, res) => {
-  const path = './data/trending.json';
-  const encoding = 'utf-8';
-  readData(path, encoding).then((data) => {
-    res.send(data);
-  });
-};
-
 module.exports = {
   parseCookie,
   loginUser,
@@ -77,6 +64,4 @@ module.exports = {
   serveHomePage,
   authenticateUser,
   logoutUser,
-  serveData,
-  serveTrending,
 };

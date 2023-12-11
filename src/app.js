@@ -8,10 +8,9 @@ const {
   authenticateUser,
   serveHomePage,
   logoutUser,
-  serveData,
-  serveTrending,
 } = require('./handlers/authentication-handlers');
 const cors = require('./middlewares/cors');
+const { serveTrending } = require('./api/api-handlers');
 
 const addMiddleware = (app) => {
   app.use(logRequest);
@@ -35,7 +34,6 @@ const createApp = (usersCredentials) => {
   addMiddleware(app);
 
   app.get('/', serveHomePage);
-  app.get('/data', serveData);
   app.get('/trending', serveTrending);
 
   return app;
