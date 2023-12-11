@@ -8,7 +8,7 @@ const setupServer = (usersCredentials) => {
   app.listen(PORT, () => {
     const TIME = new Date().toTimeString();
     console.log('Listening on PORT:', PORT, TIME);
-    console.log(`http://localhost:${PORT}`);
+    console.log(`http://localhost:${PORT}\n`);
   });
 };
 

@@ -1,5 +1,6 @@
 const logRequest = (req, _, next) => {
-  console.log(req.method, req.path);
+  const [TIME] = new Date().toTimeString().split(' ');
+  console.log(`${req.method} ${req.path} @ ${TIME} from ${req.headers.origin}`);
   next();
 };
 
