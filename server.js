@@ -19,7 +19,7 @@ const parseData = (data) => {
 
 const main = () => {
   const encoding = 'utf-8';
-  const credentialsFilePath = './users-credentials.json';
+  const credentialsFilePath = './data/users-credentials.json';
   readData(credentialsFilePath, encoding).then((data) => {
     parseData(data);
   });
