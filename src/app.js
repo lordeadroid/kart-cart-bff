@@ -37,6 +37,7 @@ const createApp = (usersCredentials) => {
   app.get('/', serveHomePage);
   app.get('/data', serveData);
   app.get('/trending', serveTrending);
+  app.get('/homePage')
 
   return app;
 };

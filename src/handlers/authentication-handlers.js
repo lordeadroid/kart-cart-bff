@@ -1,4 +1,5 @@
 const { createHmac } = require('node:crypto');
+const readData = require('../readData');
 
 const splitByEqual = (text) => text.split('=');
 
@@ -62,11 +63,9 @@ const logoutUser = (_, res) => {
 };
 
 const serveTrending = (_, res) => {
-  const data = [
-    { category: 'men', images: ['1', '2', '3', '4'] },
-    { category: 'women', images: ['5', '6', '7', '8'] },
-    { category: 'children', images: ['9', '10', '11', '12'] },
-  ];
+  const path = '../../data/trending.json';
+  const encoding = 'utf-8';
+  const data = readData(path, encoding);
   res.json(data);
 };
 
