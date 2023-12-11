@@ -4,7 +4,7 @@ const { createApp } = require('./src/app');
 const setupServer = (usersCredentials) => {
   const app = createApp(usersCredentials);
 
-  const PORT = 8000;
+  const PORT = process.env.PORT || 8000;
   app.listen(PORT, () => {
     const TIME = new Date().toTimeString();
     console.log('Listening on PORT:', PORT, TIME);
