@@ -63,10 +63,14 @@ const logoutUser = (_, res) => {
 };
 
 const serveTrending = (_, res) => {
-  const path = '../../data/trending.json';
+  const path = './data/trending.json';
   const encoding = 'utf-8';
-  const data = readData(path, encoding);
-  res.json(data);
+  readData(path, encoding).then((data) => {
+    res.json(data);
+    return;
+  });
+
+  return {};
 };
 
 module.exports = {
