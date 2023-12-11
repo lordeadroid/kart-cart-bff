@@ -66,11 +66,8 @@ const serveTrending = (_, res) => {
   const path = './data/trending.json';
   const encoding = 'utf-8';
   readData(path, encoding).then((data) => {
-    res.json(data);
-    return;
+    res.send(data);
   });
-
-  return {};
 };
 
 module.exports = {
