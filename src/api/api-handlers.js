@@ -27,4 +27,20 @@ const serveProductPage = (req, res) => {
   });
 };
 
-module.exports = { serveTrending, serveHomePageData, serveProductPage };
+const serveCategory = (req, res) => {
+  const { productCategory } = req.params;
+  const path = './data/category.json';
+  const encoding = 'utf-8';
+  readData(path, encoding).then((data) => {
+    const temp = JSON.parse(data);
+    const requiredData = temp[productCategory];
+    res.json(requiredData);
+  });
+};
+
+module.exports = {
+  serveTrending,
+  serveHomePageData,
+  serveProductPage,
+  serveCategory,
+};

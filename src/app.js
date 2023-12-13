@@ -14,6 +14,7 @@ const {
   serveTrending,
   serveHomePageData,
   serveProductPage,
+  serveCategory,
 } = require('./api/api-handlers');
 
 const addMiddleware = (app) => {
@@ -41,6 +42,7 @@ const createApp = (usersCredentials) => {
   app.get('/trending', serveTrending);
   app.get('/homepagedata', serveHomePageData);
   app.get('/product/:productId', serveProductPage);
+  app.get('/category/:productCategory', serveCategory);
 
   return app;
 };
