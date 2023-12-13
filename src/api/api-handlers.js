@@ -16,4 +16,15 @@ const serveHomePageData = (_, res) => {
   });
 };
 
-module.exports = { serveTrending, serveHomePageData };
+const serveProductPage = (req, res) => {
+  const { productId } = req.params;
+  const path = './data/products.json';
+  const encoding = 'utf-8';
+  readData(path, encoding).then((data) => {
+    const temp = JSON.parse(data);
+    const requiredData = temp[productId];
+    res.json(requiredData);
+  });
+};
+
+module.exports = { serveTrending, serveHomePageData, serveProductPage };
