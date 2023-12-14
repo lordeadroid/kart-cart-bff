@@ -10,7 +10,7 @@
     "test": "node --test",
     "lint": "eslint .",
     "coverage": "npx nyc node --test",
-    "build": "npx "
+    "build": "npm run server"
   },
   "keywords": [],
   "author": "",
