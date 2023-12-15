@@ -1,1 +1,20 @@
-{ "men": [], "women": [], "children": [] }
+{
+  "men": {
+    "m1": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "m2": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "m3": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "m4": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 }
+  },
+  "women": {
+    "w1": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "w2": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "w3": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "w4": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 }
+  },
+  "children": {
+    "c1": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "c2": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "c3": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 },
+    "c4": { "images": [], "name": "Shirt", "mrp": 1999, "price": 999 }
+  }
+}
