@@ -30,11 +30,9 @@ const serveProductPage = (req, res) => {
 
 const serveCategory = (req, res) => {
   const { productCategory } = req.params;
-  const path = './data/category.json';
-  const encoding = 'utf-8';
-  getServerSideProps().then((data) => {
-    console.log(data);
-    res.json(data);
+  getServerSideProps().then((rawData) => {
+    const [data] = rawData;
+    res.json(data[productCategory]);
   });
 };
 
