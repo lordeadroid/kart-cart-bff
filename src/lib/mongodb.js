@@ -1,12 +1,7 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
-console.log(process.env.URI);
 const uri = process.env.URI;
-const options = {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-};
 
 let client;
 let clientPromise;
