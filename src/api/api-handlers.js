@@ -1,3 +1,4 @@
+const getServerSideProps = require('../lib/client');
 const readData = require('../readData');
 
 const serveTrending = (_, res) => {
@@ -31,10 +32,9 @@ const serveCategory = (req, res) => {
   const { productCategory } = req.params;
   const path = './data/category.json';
   const encoding = 'utf-8';
-  readData(path, encoding).then((data) => {
-    const temp = JSON.parse(data);
-    const requiredData = temp[productCategory];
-    res.json(requiredData);
+  getServerSideProps().then((data) => {
+    console.log(data);
+    res.json(data);
   });
 };
 
