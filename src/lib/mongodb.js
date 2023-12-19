@@ -1,8 +1,8 @@
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
-const uri = process.env.URI;
-
+const uri =
+  'mongodb+srv://kart-cart:UG1C1dO3uNEjexuc@cluster0.k5mxgck.mongodb.net/?retryWrites=true&w=majoritys';
 let client;
 let clientPromise;
 
