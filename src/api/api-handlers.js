@@ -1,17 +1,17 @@
-const getServerSideProps = require('../lib/client');
-const readData = require('../readData');
+const getServerSideProps = require("../lib/client");
+const readData = require("../readData");
 
 const serveTrending = (_, res) => {
-  const path = './data/trending.json';
-  const encoding = 'utf-8';
+  const path = "./data/trending.json";
+  const encoding = "utf-8";
   readData(path, encoding).then((data) => {
     res.send(data);
   });
 };
 
 const serveHomePageData = (_, res) => {
-  const path = './data/homePageData.json';
-  const encoding = 'utf-8';
+  const path = "./data/homePageData.json";
+  const encoding = "utf-8";
   readData(path, encoding).then((data) => {
     res.send(data);
   });
@@ -19,8 +19,8 @@ const serveHomePageData = (_, res) => {
 
 const serveProductPage = (req, res) => {
   const { productId } = req.params;
-  const path = './data/products.json';
-  const encoding = 'utf-8';
+  const path = "./data/products.json";
+  const encoding = "utf-8";
   readData(path, encoding).then((data) => {
     const temp = JSON.parse(data);
     const requiredData = temp[productId];
@@ -29,8 +29,10 @@ const serveProductPage = (req, res) => {
 };
 
 const serveCategory = (req, res) => {
+  const dbName = "STORE";
+  const collectionName = "PRODUCTS";
   const { productCategory } = req.params;
-  getServerSideProps().then((rawData) => {
+  getServerSideProps({ dbName, collectionName }).then((rawData) => {
     const [data] = rawData;
     res.json(data[productCategory]);
   });
