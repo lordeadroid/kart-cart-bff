@@ -12,19 +12,15 @@ const serveTrending = (_, res) => {
 const serveHomePageData = (_, res) => {
   const dbName = "STORE";
   const collectionName = "GALLERY_IMAGES";
-  getServerSideProps({ dbName, collectionName }).then((data) => {
+  getServerSideProps({ dbName, collectionName }).then((rawData) => {
+    const [data] = rawData;
     const { galleryImages } = data;
     res.json(galleryImages);
   });
 };
 
-const serveProductPage = (req, res) => {
-  const dbName = "STORE";
-  const collectionName = "GALLERY_IMAGES";
-  getServerSideProps({ dbName, collectionName }).then((rawData) => {
-    const [data] = rawData;
-    res.json(data[productCategory]);
-  });
+const serveProductPage = (_, res) => {
+  res.send("NOT FOUND");
 };
 
 const serveCategory = (req, res) => {
