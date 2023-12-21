@@ -18,13 +18,11 @@ const serveHomePageData = (_, res) => {
 };
 
 const serveProductPage = (req, res) => {
-  const { productId } = req.params;
-  const path = "./data/products.json";
-  const encoding = "utf-8";
-  readData(path, encoding).then((data) => {
-    const temp = JSON.parse(data);
-    const requiredData = temp[productId];
-    res.json(requiredData);
+  const dbName = "STORE";
+  const collectionName = "GALLERY_IMAGES";
+  getServerSideProps({ dbName, collectionName }).then((rawData) => {
+    const [data] = rawData;
+    res.json(data[productCategory]);
   });
 };
 
