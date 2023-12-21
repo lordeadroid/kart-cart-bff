@@ -10,14 +10,6 @@ const serveTrending = (_, res) => {
 };
 
 const serveHomePageData = (_, res) => {
-  const path = "./data/homePageData.json";
-  const encoding = "utf-8";
-  readData(path, encoding).then((data) => {
-    res.send(data);
-  });
-};
-
-const serveProductPage = (req, res) => {
   const dbName = "STORE";
   const collectionName = "GALLERY_IMAGES";
   getServerSideProps({ dbName, collectionName }).then((rawData) => {
@@ -26,10 +18,13 @@ const serveProductPage = (req, res) => {
   });
 };
 
+const serveProductPage = (_, res) => {
+  res.send("NOT FOUND");
+};
+
 const serveCategory = (req, res) => {
   const dbName = "STORE";
   const collectionName = "PRODUCTS";
-  const { productCategory } = req.params;
   getServerSideProps({ dbName, collectionName }).then((rawData) => {
     const [data] = rawData;
     res.json(data[productCategory]);
