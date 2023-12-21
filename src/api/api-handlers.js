@@ -1,4 +1,4 @@
-const getServerSideProps = require("../lib/client");
+const requestData = require("../lib/mongodb");
 const readData = require("../readData");
 
 const serveTrending = (_, res) => {
@@ -10,10 +10,9 @@ const serveTrending = (_, res) => {
 };
 
 const serveHomePageData = (_, res) => {
-  const dbName = "STORE";
+  const databaseName = "STORE";
   const collectionName = "GALLERY_IMAGES";
-  getServerSideProps({ dbName, collectionName }).then((rawData) => {
-    const [data] = rawData;
+  requestData({ databaseName, collectionName }).then((data) => {
     const { galleryImages } = data;
     res.json(galleryImages);
   });
@@ -24,11 +23,10 @@ const serveProductPage = (_, res) => {
 };
 
 const serveCategory = (req, res) => {
-  const dbName = "STORE";
+  const databaseName = "STORE";
   const collectionName = "PRODUCTS";
   const { productCategory } = req.params;
-  getServerSideProps({ dbName, collectionName }).then((rawData) => {
-    const [data] = rawData;
+  requestData({ databaseName, collectionName }).then((data) => {
     res.json(data[productCategory]);
   });
 };
