@@ -10,7 +10,9 @@
     "test": "node --test",
     "lint": "eslint .",
     "coverage": "npx nyc node --test",
-    "build": "npm start"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +21,9 @@
     "eslint": "^8.45.0",
     "jest": "^29.7.0",
     "nyc": "^15.1.0",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
   },
   "dependencies": {
     "express": "^4.18.2",
