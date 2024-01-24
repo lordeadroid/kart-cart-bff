@@ -27,10 +27,7 @@ const loginUser = (req, res) => {
 };
 
 const serveHomePage = (req, res, next) => {
-  if (!isValidCookie(req.cookies)) {
-    return serveLoginPage(req, res);
-  }
-  next();
+  res.send("This is a homepage for kart-cart backend")
 };
 
 const checkLoginStatus = (req, res) => {
