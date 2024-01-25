@@ -43,6 +43,7 @@ const createApp = (usersCredentials) => {
   app.get('/homepagedata', serveHomePageData);
   app.get('/product/:productId', serveProductPage);
   app.get('/category/:productCategory', serveCategory);
+  app.get(express.static('public', {}));
 
   return app;
 };

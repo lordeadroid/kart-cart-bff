@@ -1,10 +1,10 @@
-const { createHmac } = require('node:crypto');
+const { createHmac } = require("node:crypto");
 
-const splitByEqual = (text) => text.split('=');
+const splitByEqual = (text) => text.split("=");
 
 const parseCookie = (req, _, next) => {
-  const rawCookies = req.headers.cookie || '';
-  const cookiesPairs = rawCookies.split(';');
+  const rawCookies = req.headers.cookie || "";
+  const cookiesPairs = rawCookies.split(";");
   const cookies = Object.fromEntries(cookiesPairs.map(splitByEqual));
   req.cookies = cookies;
   next();
@@ -13,8 +13,8 @@ const parseCookie = (req, _, next) => {
 const isValidCookie = (cookies) => cookies.username;
 
 const serveLoginPage = (_, res) => {
-  const path = 'login.html';
-  const root = 'public/pages';
+  const path = "login.html";
+  const root = "public/pages";
   res.sendFile(path, { root });
   return;
 };
@@ -23,26 +23,26 @@ const loginUser = (req, res) => {
   if (!isValidCookie(req.cookies)) {
     return serveLoginPage(req, res);
   }
-  res.redirect('/');
+  res.redirect("/");
 };
 
-const serveHomePage = (req, res, next) => {
-  res.send("This is a homepage for kart-cart backend")
+const serveHomePage = (_, res) => {
+  res.send("this is the backend for kart-cart website");
 };
 
 const checkLoginStatus = (req, res) => {
   if (!isValidCookie(req.cookies)) {
-    res.redirect('/login');
+    res.redirect("/login");
   }
 };
 
 const authenticateUser = (req, res) => {
   const { username, password } = req.body;
-  const hash = createHmac('md5', password).digest('hex');
+  const hash = createHmac("md5", password).digest("hex");
 
   if (req.app.locals.usersCredentials[username] === hash) {
-    res.cookie('username', username);
-    res.redirect('/');
+    res.cookie("username", username);
+    res.redirect("/");
     return;
   }
 
@@ -50,7 +50,7 @@ const authenticateUser = (req, res) => {
 };
 
 const logoutUser = (_, res) => {
-  res.clearCookie('username');
+  res.clearCookie("username");
   res.end();
 };
 
