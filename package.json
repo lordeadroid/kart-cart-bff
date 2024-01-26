@@ -7,7 +7,7 @@
     "setup": "./bin/setup.sh",
     "start": "node server.js",
     "server": "node --watch server.js",
-    "test": "node --test",
+    "test": "jest",
     "lint": "eslint .",
     "coverage": "npx nyc node --test",
     "build": "npm start"

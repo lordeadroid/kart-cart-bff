@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 
-const { logRequest } = require('./middlewares/logger');
+const { logRequest } = require("./middlewares/logger");
 const {
   loginUser,
   checkLoginStatus,
@@ -8,14 +8,14 @@ const {
   authenticateUser,
   serveHomePage,
   logoutUser,
-} = require('./handlers/authentication-handlers');
-const cors = require('./middlewares/cors');
+} = require("./handlers/authentication-handlers");
+const cors = require("./middlewares/cors");
 const {
   serveTrending,
   serveHomePageData,
   serveProductPage,
   serveCategory,
-} = require('./api/api-handlers');
+} = require("./api/api-handlers");
 
 const addMiddleware = (app) => {
   app.use(logRequest);
@@ -26,10 +26,10 @@ const addMiddleware = (app) => {
 };
 
 const addAuthenticators = (app) => {
-  app.get('/login-status', checkLoginStatus);
-  app.get('/login', loginUser);
-  app.post('/login', authenticateUser);
-  app.post('/logout', logoutUser);
+  app.get("/login-status", checkLoginStatus);
+  app.get("/login", loginUser);
+  app.post("/login", authenticateUser);
+  app.post("/logout", logoutUser);
 };
 
 const createApp = (usersCredentials) => {
@@ -38,12 +38,12 @@ const createApp = (usersCredentials) => {
 
   addMiddleware(app);
 
-  app.get('/', serveHomePage);
-  app.get('/trending', serveTrending);
-  app.get('/homepagedata', serveHomePageData);
-  app.get('/product/:productId', serveProductPage);
-  app.get('/category/:productCategory', serveCategory);
-  app.get(express.static('public', {}));
+  app.get("/", serveHomePage);
+  app.get("/trending", serveTrending);
+  app.get("/homepagedata", serveHomePageData);
+  app.get("/product/:productId", serveProductPage);
+  app.get("/category/:productCategory", serveCategory);
+  app.get(express.static("public", {}));
 
   return app;
 };
