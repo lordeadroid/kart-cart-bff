@@ -1,10 +1,12 @@
-const readData = require("./src/readData");
-const { createApp } = require("./src/app");
+import { Express } from "express";
+
+import createApp from "./app";
+import { defaultPortNumber } from "./utils/constants";
 
 const main = () => {
-  const app = createApp();
+  const app: Express = createApp();
 
-  const PORT: number = 8000;
+  const PORT: number = parseInt(process.env.PORT ?? defaultPortNumber);
   const TIME: string = new Date().toTimeString();
 
   app.listen(PORT, () => {
