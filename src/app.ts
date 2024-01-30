@@ -2,12 +2,12 @@ import { Express } from "express";
 import * as express from "express";
 
 import logRequest from "./middlewares/logger";
+import cors from "./middlewares/cors";
 
 const {
   parseCookie,
   serveHomePage,
 } = require("./handlers/authentication-handlers");
-const cors = require("./middlewares/cors");
 
 const addMiddleware = (app: Express) => {
   app.use(logRequest);
