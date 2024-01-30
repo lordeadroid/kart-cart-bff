@@ -1,7 +1,8 @@
 import { Express } from "express";
 import * as express from "express";
 
-const { logRequest } = require("./middlewares/logger");
+import logRequest from "./middlewares/logger";
+
 const {
   parseCookie,
   serveHomePage,
