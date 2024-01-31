@@ -3,7 +3,7 @@
     "target": "ES5",
     "module": "CommonJS",
     "strict": true,
-    "outDir": "./build"
-  },
-  "include": ["src/**/*.ts"]
+    "outDir": "./build",
+    "rootDirs": ["src"]
+  }
 }
