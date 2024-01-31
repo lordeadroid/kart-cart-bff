@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "setup": "./bin/setup.sh",
-    "start": "node server.js",
-    "server": "node --watch server.js",
-    "lint": "eslint .",
+    "build": "npx tsc",
     "coverage": "npx nyc node --test",
-    "build": "npm start"
+    "dev": "node --watch main.js",
+    "lint": "eslint .",
+    "setup": "./bin/setup.sh",
+    "start": "node main.js"
   },
   "keywords": [],
   "author": "",
