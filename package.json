@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npx tsc",
     "coverage": "npx nyc node --test",
-    "dev": "npm run build; npm start --watch",
+    "dev": "node --watch build/main.js",
     "lint": "eslint .",
     "setup": "./bin/setup.sh",
     "start": "node build/main.js"
