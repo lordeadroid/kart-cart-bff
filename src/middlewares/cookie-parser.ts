@@ -13,3 +13,4 @@ const parseCookie: ApiRequest = (req, _, next) => {
 };
 
 export default parseCookie;
+
