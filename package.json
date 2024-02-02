@@ -6,10 +6,10 @@
   "scripts": {
     "build": "npx tsc",
     "coverage": "npx nyc node --test",
-    "dev": "node --watch main.js",
+    "dev": "npm run build; npm start --watch",
     "lint": "eslint .",
     "setup": "./bin/setup.sh",
-    "start": "node main.js"
+    "start": "node build/main.js"
   },
   "keywords": [],
   "author": "",
