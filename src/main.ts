@@ -3,7 +3,7 @@ import { Express } from "express";
 import createApp from "./app";
 import { defaultPortNumber } from "./utils/constants";
 
-const main = () => {
+const main = (): void => {
   const app: Express = createApp();
 
   const PORT: number = parseInt(process.env.PORT ?? defaultPortNumber);
