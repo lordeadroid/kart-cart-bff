@@ -4,9 +4,8 @@ import express from "express";
 import logRequest from "./middlewares/logger";
 import cors from "./middlewares/cors";
 import parseCookie from "./middlewares/cookie-parser";
-import { serveCategory } from "./api/api-handlers";
 
-const setupMiddlewares = (app: Express): void => {
+const setupMiddlewares = (app: Express) => {
   app.use(logRequest);
   app.use(parseCookie);
   app.use(express.json());
@@ -15,17 +14,11 @@ const setupMiddlewares = (app: Express): void => {
   app.use("/", express.static("public"));
 };
 
-const setupEndPoint = (app: Express): void => {
-  app.get("/category/:productCategory", serveCategory);
-};
-
-const createApp = (): Express => {
+const createApp = () => {
   const app: Express = express();
 
   setupMiddlewares(app);
-  setupEndPoint(app);
   return app;
 };
 
 export default createApp;
-
