@@ -5,7 +5,7 @@ import logRequest from "./middlewares/logger";
 import cors from "./middlewares/cors";
 import parseCookie from "./middlewares/cookie-parser";
 
-const setupMiddlewares = (app: Express) => {
+const setupMiddlewares = (app: Express): void => {
   app.use(logRequest);
   app.use(parseCookie);
   app.use(express.json());
@@ -14,7 +14,7 @@ const setupMiddlewares = (app: Express) => {
   app.use("/", express.static("public"));
 };
 
-const createApp = () => {
+const createApp = (): Express => {
   const app: Express = express();
 
   setupMiddlewares(app);
