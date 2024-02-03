@@ -5,7 +5,7 @@ import logRequest from "./middlewares/logger";
 import cors from "./middlewares/cors";
 import parseCookie from "./middlewares/cookie-parser";
 
-const addMiddleware = (app: Express) => {
+const setupMiddlewares = (app: Express) => {
   app.use(logRequest);
   app.use(parseCookie);
   app.use(express.json());
@@ -17,8 +17,7 @@ const addMiddleware = (app: Express) => {
 const createApp = () => {
   const app: Express = express();
 
-  addMiddleware(app);
-
+  setupMiddlewares(app);
   return app;
 };
 
