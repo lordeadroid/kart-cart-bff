@@ -1,4 +1,4 @@
-import createApp from "../src/app";
+import createApp from "../../src/app";
 import * as request from "supertest";
 
 describe("APP", () => {
