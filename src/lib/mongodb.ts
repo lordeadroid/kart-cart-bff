@@ -1,19 +1,8 @@
 import dbClient from "./db-client";
-<<<<<<<< HEAD:src/lib/request-data.ts
 import { RequestData } from "../utils/types";
 import { findAll, excludeId } from "../utils/constants";
 
 const requestData: RequestData = async (databaseName, collectionName) => {
-========
-import { findAll, excludeId } from "../utils/constants";
-import { RequestData } from "../utils/types";
-
-const requestData = async ({ databaseName, collectionName }: RequestData) => {
-<<<<<<< HEAD
->>>>>>>> 2513c2f (migrated mongodb code to ts):src/lib/mongodb.ts
-=======
->>>>>>>> 6f15833 (migrated mongodb code to ts):src/lib/mongodb.ts
->>>>>>> e125e5c (migrated mongodb code to ts)
   let clientInstance;
 
   try {
