@@ -9,7 +9,8 @@
     "dev": "node --watch build/main.js",
     "lint": "eslint .",
     "setup": "./bin/setup.sh",
-    "start": "node build/main.js"
+    "start": "node build/main.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
   "dependencies": {
     "@types/express": "^4.17.21",
     "express": "^4.18.2",
-    "mongodb": "^6.3.0"
+    "mongodb": "^6.3.0",
+    "ts-jest": "^29.1.2"
   }
 }
