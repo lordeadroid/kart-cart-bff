@@ -1,3 +1,7 @@
-const defaultPortNumber: string = "8000";
+import { ExcludeId } from "./types";
 
-export { defaultPortNumber };
+const defaultPortNumber: string = "8000";
+const findAll: {} = {} as const;
+const excludeId: ExcludeId = { projection: { _id: 0 } };
+
+export { defaultPortNumber, findAll, excludeId };

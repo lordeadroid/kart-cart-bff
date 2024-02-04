@@ -1,7 +1,8 @@
-const { findAll, excludeId } = require("../utils/constants");
-const dbClient = require("./db-client");
+import dbClient from "./db-client";
+import { findAll, excludeId } from "../utils/constants";
+import { RequestData } from "../utils/types";
 
-const requestData = async ({ databaseName, collectionName }) => {
+const requestData = async ({ databaseName, collectionName }: RequestData) => {
   let clientInstance;
 
   try {
@@ -20,4 +21,4 @@ const requestData = async ({ databaseName, collectionName }) => {
   }
 };
 
-module.exports = requestData;
+export default requestData;
