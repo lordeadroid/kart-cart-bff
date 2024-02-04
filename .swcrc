@@ -1,0 +1,11 @@
+{
+  "exclude": ["test"],
+  "jsc": {
+    "parser": {
+      "syntax": "typescript"
+    }
+  },
+  "module": {
+    "type": "commonjs"
+  }
+}
