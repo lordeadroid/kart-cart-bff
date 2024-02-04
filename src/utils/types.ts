@@ -2,7 +2,11 @@
 import { NextFunction, Request, Response } from "express";
 
 =======
+<<<<<<< HEAD
 >>>>>>> 2513c2f (migrated mongodb code to ts)
+=======
+>>>>>>> 6f15833 (migrated mongodb code to ts)
+>>>>>>> e125e5c (migrated mongodb code to ts)
 type Id = {
   _id: number;
 };
@@ -27,4 +31,8 @@ type RequestData = {
 };
 
 export { ExcludeId, RequestData };
+<<<<<<< HEAD
 >>>>>>> 2513c2f (migrated mongodb code to ts)
+=======
+>>>>>>> 6f15833 (migrated mongodb code to ts)
+>>>>>>> e125e5c (migrated mongodb code to ts)
