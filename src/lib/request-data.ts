@@ -2,7 +2,7 @@ import dbClient from "./db-client";
 import { RequestData } from "../utils/types";
 import { findAll, excludeId } from "../utils/constants";
 
-const requestData = async ({ databaseName, collectionName }: RequestData) => {
+const requestData: RequestData = async (databaseName, collectionName) => {
   let clientInstance;
 
   try {
