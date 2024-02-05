@@ -1,6 +1,6 @@
 import dbClient from "./db-client";
-import { findAll, excludeId } from "../utils/constants";
 import { RequestData } from "../utils/types";
+import { findAll, excludeId } from "../utils/constants";
 
 const requestData = async ({ databaseName, collectionName }: RequestData) => {
   let clientInstance;
