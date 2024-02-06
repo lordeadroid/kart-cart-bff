@@ -1,6 +1,6 @@
-import { Request as Req, Response as Res, NextFunction as Next } from "express";
+import { ApiRequest } from "../utils/types";
 
-const logRequest = (req: Req, _: Res, next: Next): void => {
+const logRequest: ApiRequest = (req, _, next) => {
   const [TIME] = new Date().toTimeString().split(" ");
   console.log(`${req.method} ${req.path} @ ${TIME} from ${req.headers.origin}`);
   next();
