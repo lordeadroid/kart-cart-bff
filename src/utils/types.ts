@@ -1,3 +1,5 @@
+import { NextFunction, Request, Response } from "express";
+
 type Id = {
   _id: number;
 };
@@ -11,4 +13,6 @@ type RequestData = (
   collectionName: string
 ) => Promise<Object>;
 
-export { ExcludeId, RequestData };
+type ApiRequest = (req: Request, res: Response, next?: NextFunction) => void;
+
+export { ExcludeId, RequestData, ApiRequest };
