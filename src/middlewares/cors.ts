@@ -1,6 +1,6 @@
-import { Request as Req, Response as Res, NextFunction as Next } from "express";
+import { ApiRequest } from "../utils/types";
 
-const cors = (_: Req, res: Res, next: Next): void => {
+const cors: ApiRequest = (_, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 };

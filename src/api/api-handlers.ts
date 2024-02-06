@@ -1,6 +1,6 @@
-import { Request as Req, Response as Res } from "express";
+import { ApiRequest } from "../utils/types";
 
-const serveHomePage = (_: Req, res: Res) => {
+const serveHomePage: ApiRequest = (_, res) => {
   res.send("This is the homepage for kart cart bff");
 };
 
