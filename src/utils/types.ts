@@ -13,6 +13,6 @@ type RequestData = (
   collectionName: string
 ) => Promise<Object>;
 
-type ApiRequest = (req: Request, res: Response, next?: NextFunction) => void;
+type ApiRequest = (req: Request, res: Response, next: NextFunction) => void;
 
 export { ExcludeId, RequestData, ApiRequest };
