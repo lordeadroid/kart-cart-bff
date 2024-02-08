@@ -1,5 +1,5 @@
 import { Express } from "express";
-import * as express from "express";
+import express from "express";
 
 import logRequest from "./middlewares/logger";
 import cors from "./middlewares/cors";
