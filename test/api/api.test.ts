@@ -1,7 +1,7 @@
 import { describe, test } from "@jest/globals";
 
 import createApp from "../../src/app";
-import * as request from "supertest";
+import request from "supertest";
 
 describe("GET /", () => {
   test("should send the homepage", async () => {
