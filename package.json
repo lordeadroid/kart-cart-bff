@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
+    "build": "rm -rf build; npx tsc",
     "coverage": "npx nyc node --test",
     "dev": "node --watch build/main.js",
     "lint": "eslint .",
