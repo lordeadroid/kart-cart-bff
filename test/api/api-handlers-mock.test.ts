@@ -27,4 +27,12 @@ describe("GET /category/men", () => {
     expect(response.type).toBe("application/json");
     expect(response.body).toStrictEqual(mockCategoryData.women);
   });
+
+  test("should get data for men's category", async () => {
+    const response = await request(createApp()).get("/category/kids");
+
+    expect(response.status).toBe(200);
+    expect(response.type).toBe("application/json");
+    expect(response.body).toStrictEqual(mockCategoryData.kids);
+  });
 });
