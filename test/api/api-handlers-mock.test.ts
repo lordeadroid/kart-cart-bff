@@ -8,11 +8,11 @@ import mockCategoryData from "../test-data/category-data";
 jest.mock("../../src/lib/request-data");
 
 describe("GET /category/men", () => {
-  test("should get data for men's category", async () => {
-    (requestData as jest.Mock).mockImplementationOnce(() => {
-      return mockCategoryData;
-    });
+  (requestData as jest.Mock).mockImplementation(() => {
+    return mockCategoryData;
+  });
 
+  test("should get data for men's category", async () => {
     const response = await request(createApp()).get("/category/men");
 
     expect(response.status).toBe(200);
